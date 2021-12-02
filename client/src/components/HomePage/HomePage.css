@@ -1,0 +1,53 @@
+.nav {
+  display: flex;
+}
+
+.logo-div {
+  flex: 1;
+}
+
+.add {
+  flex: 1;
+}
+
+.logo {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 40px;
+  top: 26px;
+}
+
+.add-session {
+  position: relative;
+  top: 77px;
+  color: black;
+  border: 2px solid black !important;
+  text-decoration: none !important;
+  left: 250px;
+  font-size: 30px;
+  width: 40px;
+  border-radius: 5px;
+  background: transparent;
+  transition: transform .2s
+}
+
+.add-session:hover {
+  background-color: rgb(0, 0, 0, 0.2);
+  transform: scale(1.1)
+}
+
+.action-text {
+  display: flex;
+  position: relative;
+  max-width: 750px;
+  margin: auto;
+  top: 200px;
+  font-size: 22px;
+  text-align: center;
+  color: white;
+}
+
+.action-text span {
+  color: black;
+}
