@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './NewSession.css'
 import Movement from '../Movement/Movement'
-import { movementUrl, config } from '../Services/index'
+import { sessionUrl, config } from '../Services/index'
 import axios from 'axios'
 
 
@@ -21,6 +21,33 @@ function NewSession() {
   const [reps, setReps] = useState('')
   const [sets, setSets] = useState('')
   const [notes, setNotes] = useState('')
+
+  const sessionData = {
+    sessionName: sessionName,
+    movement: [
+      movement,
+      weight,
+      rpe,
+      reps,
+      sets,
+      notes
+    ]
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const sessionPost = () => {
+      axios.post(sessionUrl, { fields: sessionData }, config).then((res, err) => {
+        if (res) {
+          navigate('/')
+        } else {
+          console.log('something went wrong');
+        }
+      })
+    }
+    sessionPost()
+    
+  }
 
   const handleCancel = () => {
     navigate('/')
