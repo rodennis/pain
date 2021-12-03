@@ -31,9 +31,10 @@
   height: 25px;
   width: 210px;
   border-radius: 5px;
-  background: transparent;
+  background: rgb(255, 255, 255, 0.1);
   text-align: center;
   color: white;
+  font-family: 'oswald';
 }
 
 .add-a-movement {
@@ -64,9 +65,11 @@
   bottom: 15px;
   border-radius: 5px;
   border-style: none;
-  background: transparent;
+  background: rgb(255, 255, 255, 0.1);
   border: 2px solid rgb(0, 0, 0, 0.5);
   cursor: pointer;
+  font-family: 'oswald';
+
 }
 
 .movement {
@@ -93,12 +96,13 @@
   width: 144px;
   border-radius: 5px;
   border: 2px solid rgb(0, 0, 0, 0.5);
-  background: transparent;
+  background: rgb(255, 255, 255, 0.1);
   text-align: center;
   margin: 5px;
   margin-top: 10px;
   margin-left: 10px;
   color: white;
+  font-family: 'oswald';
 }
 
 .weight {
@@ -107,11 +111,12 @@
   height: 25px;
   border-radius: 5px;
   border: 2px solid rgb(0, 0, 0, 0.5);
-  background: transparent;
+  background: rgb(255, 255, 255, 0.1);
   text-align: center;
   margin: 5px;
   margin-left: 10px;
   color: white;
+  font-family: 'oswald';
 }
 
 .rpe {
@@ -120,11 +125,12 @@
   width: 50px;
   border-radius: 5px;
   border: 2px solid rgb(0, 0, 0, 0.5);
-  background: transparent;
+  background: rgb(255, 255, 255, 0.1);
   text-align: center;
   margin: 5px;
   margin-left: 29px;
   color: white;
+  font-family: 'oswald';
 }
 
 .reps {
@@ -133,11 +139,12 @@
   height: 25px;
   border-radius: 5px;
   border: 2px solid rgb(0, 0, 0, 0.5);
-  background: transparent;
+  background: rgb(255, 255, 255, 0.1);
   text-align: center;
   margin: 5px;
   margin-left: 29px;
   color: white;
+  font-family: 'oswald';
 }
 
 .sets {
@@ -146,11 +153,12 @@
   width: 50px;
   border-radius: 5px;
   border: 2px solid rgb(0, 0, 0, 0.5);
-  background: transparent;
+  background: rgb(255, 255, 255, 0.1);
   text-align: center;
   margin: 5px;
   margin-left: 10px;
   color: white;
+  font-family: 'oswald';
 }
 
 .notes {
@@ -159,12 +167,13 @@
   height: 100px;
   border-radius: 5px;
   border: 2px solid rgb(0, 0, 0, 0.5);
-  background: transparent;
+  background: rgb(255, 255, 255, 0.1);
   text-align: center;
   margin: 5px;
   margin-top: 10px;
   resize: none;
   color: white;
+  font-family: 'oswald';
 }
 
 .action-buttons {
@@ -181,6 +190,8 @@
   position: relative;
   margin-right: 120px;
   color: white;
+  font-family: 'oswald';
+  cursor: pointer;
 }
 
 .cancel-session {
@@ -192,7 +203,11 @@
   top: 135px;
   position: relative;
   color: white;
+  font-family: 'oswald';
+  cursor: pointer;
 }
+
+
 
 
 

@@ -24,26 +24,20 @@ function NewSession() {
 
   const sessionData = {
     sessionName: sessionName,
-    movement: [
+    movements: {
       movement,
       weight,
       rpe,
       reps,
       sets,
       notes
-    ]
+  }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const sessionPost = () => {
-      axios.post(sessionUrl, { fields: sessionData }, config).then((res, err) => {
-        if (res) {
-          navigate('/')
-        } else {
-          console.log('something went wrong');
-        }
-      })
+      axios.post(sessionUrl, { fields: sessionData }, config)
     }
     sessionPost()
     
@@ -54,7 +48,7 @@ function NewSession() {
   }
 
   return (
-    <div>
+    <div className='container'>
       <div className="nav">
         <div className="logo-div">
         <Link to='/'><img className='logo' src={Logo} alt="" /></Link>
