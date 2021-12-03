@@ -2,6 +2,8 @@ import React from 'react'
 import Logo from '../photos/logo.png'
 import { Link } from 'react-router-dom'
 import './HomePage.css'
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
 function HomePage() {
   return (
@@ -11,7 +13,11 @@ function HomePage() {
         <img className='logo' src={Logo} alt="" />
         </div>
         <div className="add">
-          <Link to='/new-session'><button className='add-session'>+</button></Link>
+          <Link to='/new-session'>
+          <Fab className='circle' aria-label="add">
+        <AddIcon />
+      </Fab>
+      </Link>
         </div>
       </div>
       <div className="action-text">

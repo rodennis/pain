@@ -18,11 +18,10 @@
   top: 26px;
 }
 
-.add-session {
+.circle {
   position: relative;
-  top: 77px;
+  top: 70px;
   color: black;
-  border: 2px solid black !important;
   text-decoration: none !important;
   left: 250px;
   font-size: 30px;
@@ -32,8 +31,7 @@
   transition: transform .2s
 }
 
-.add-session:hover {
-  background-color: rgb(0, 0, 0, 0.2);
+.circle:hover {
   transform: scale(1.1)
 }
 

@@ -1,0 +1,198 @@
+.form-div {
+  justify-content: center;
+  display: flex;
+}
+
+.session {
+  background-color: #343434;
+  margin: auto;
+  border-radius: 10px;
+  top: 200px;
+  position: relative;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 0.5fr 0.1fr 1fr 1fr ;
+  grid-template-areas: 
+    "N N N N"
+    "A A D D"
+    "M M M M";
+}
+
+.name {
+  grid-area: N;
+  border-bottom: 2px solid rgb(0, 0, 0, 0.3);
+  height: 60px;
+}
+
+.session-name {
+  position: relative;
+  top: 15px;
+  height: 25px;
+  width: 210px;
+  border-radius: 5px;
+  background: transparent;
+  text-align: center;
+  color: white;
+}
+
+.add-a-movement {
+  grid-area: A;
+}
+
+.add-a-movement button {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  border-style: none;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  font-size: 20px;
+  bottom: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.date {
+  grid-area: D;
+}
+
+.date-value {
+  width: 95px;
+  height: 16px;
+  position: relative;
+  bottom: 15px;
+  border-radius: 5px;
+  border-style: none;
+  background: transparent;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.movement {
+  display: grid;
+  grid-area: M;
+  grid-template-columns: 75px 100px;
+  grid-template-rows: 0.5fr 0.5fr 1fr; 
+  grid-template-areas: 
+    "V V T T"
+    "W E T T"
+    "S P T T";
+
+    border: 2px solid rgb(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-right: 25px;
+    margin-left: 25px;
+    height: 130px;
+    margin-top: -5px;
+}
+
+.movement-name {
+  grid-area: V;
+  height: 20px;
+  width: 144px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  text-align: center;
+  margin: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: white;
+}
+
+.weight {
+  grid-area: W;
+  width: 50px;
+  height: 25px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  text-align: center;
+  margin: 5px;
+  margin-left: 10px;
+  color: white;
+}
+
+.rpe {
+  grid-area: E;
+  height: 25px;
+  width: 50px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  text-align: center;
+  margin: 5px;
+  margin-left: 29px;
+  color: white;
+}
+
+.reps {
+  grid-area: P;
+  width: 50px;
+  height: 25px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  text-align: center;
+  margin: 5px;
+  margin-left: 29px;
+  color: white;
+}
+
+.sets {
+  grid-area: S;
+  height: 25px;
+  width: 50px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  text-align: center;
+  margin: 5px;
+  margin-left: 10px;
+  color: white;
+}
+
+.notes {
+  grid-area: T;
+  width: 144px;
+  height: 100px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  text-align: center;
+  margin: 5px;
+  margin-top: 10px;
+  resize: none;
+  color: white;
+}
+
+.action-buttons {
+  width: 400px;
+}
+
+.send-session {
+  height: 25px;
+  width: 75px;
+  border-radius: 20px;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  top: 135px;
+  position: relative;
+  margin-right: 120px;
+  color: white;
+}
+
+.cancel-session {
+  height: 25px;
+  width: 75px;
+  border-radius: 20px;
+  border: 2px solid rgb(0, 0, 0, 0.5);
+  background: transparent;
+  top: 135px;
+  position: relative;
+  color: white;
+}
+
+
+
