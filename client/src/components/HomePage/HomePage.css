@@ -56,6 +56,8 @@
   margin-top: 130px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .sesh-div {
@@ -64,18 +66,20 @@
   background-color: #343434;
   color: white;
   border-radius: 10px;
+  flex: 1;
 }
 
 .sesh-name {
-
+  padding-top: 10px;
 }
 
 .sesh-date {
-
+  margin-top: -10px;
 }
 
 .sesh-logo {
   width: 75px;
+  margin-top: -5px;
 }
 
 .link {

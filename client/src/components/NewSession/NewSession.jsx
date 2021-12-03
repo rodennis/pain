@@ -9,7 +9,7 @@ import { sessionUrl, movementUrl, config } from '../Services/index'
 import axios from 'axios'
 
 
-function NewSession() {
+function NewSession(props) {
 
   const navigate = useNavigate()
 
@@ -41,6 +41,7 @@ function NewSession() {
     const sessionPost = await axios.post(sessionUrl, { fields: sessionData }, config)
     await axios.post(movementUrl, { fields: {...movementData, session: [sessionPost.data.id]} }, config)
     navigate('/')
+    props.setToggle(prevToggle => !prevToggle)
   }
 
   const handleCancel = () => {

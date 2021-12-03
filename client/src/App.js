@@ -11,6 +11,7 @@ function App() {
 
   const [session, setSession] = useState([])
   const [movements, setMovements] = useState([])
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     const getApiData = async () => {
@@ -19,11 +20,11 @@ function App() {
       console.log(session);
     }
     getApiData()
-  }, [])
+  }, [toggle])
 
   useEffect(() => {
     const getMovementData = async () => {
-      const res = await axios.get(`${movementUrl}`, config)
+      const res = await axios.get(movementUrl, config)
       setMovements(res.data.records);
     }
     getMovementData()
@@ -33,7 +34,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<HomePage session={session} movements={movements}/>} />
-        <Route path='/new-session' element={<NewSession />} />
+        <Route path='/new-session' element={<NewSession setToggle={ setToggle}/>} />
         <Route path='/session' element={<Session />} />
       </Routes>
     </div>
