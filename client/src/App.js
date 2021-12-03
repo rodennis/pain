@@ -5,6 +5,7 @@ import axios from 'axios';
 import { sessionUrl, config, movementUrl } from './components/Services/index'
 import HomePage from './components/HomePage/HomePage';
 import NewSession from './components/NewSession/NewSession';
+import Session from './components/Session/Session'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   useEffect(() => {
     const getApiData = async () => {
       const res = await axios.get(sessionUrl, config)
-      setSession(res.data);
+      setSession(res.data.records);
       console.log(session);
     }
     getApiData()
@@ -31,8 +32,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/new-session' element={ <NewSession />} />
+        <Route path='/' element={<HomePage session={session} movements={movements}/>} />
+        <Route path='/new-session' element={<NewSession />} />
+        <Route path='/session' element={<Session />} />
       </Routes>
     </div>
   );
