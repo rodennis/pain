@@ -22,35 +22,6 @@ function NewSession() {
   const [sets, setSets] = useState('')
   const [notes, setNotes] = useState('')
 
-  const sessionData = {
-    name: sessionName,
-    movement,
-    weight,
-    rpe,
-    reps,
-    sets,
-    notes
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const sessionPost = () => {
-      axios.post(movementUrl, { fields: sessionData }, config).then((res, err) => {
-        if (res) {
-          navigate('/')
-        } else {
-          console.log('something went wrong');
-        }
-      })
-    }
-    sessionPost()
-    
-  }
-
-  const handleCancel = () => {
-    navigate('/')
-  }
-
   return (
     <div>
       <div className="nav">
