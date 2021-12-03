@@ -21,12 +21,11 @@ function HomePage(props) {
       </Link>
         </div>
       </div>
-      <div>
-
+      <div className='all-sessions-div'>
       {props.movements[0] ? 
           // <h1>hello world</h1>
           props.session.map(sesh => (
-            <Link to='/session'>
+            <Link className='link' to='/session'>
             <div className='sesh-div'>
           <h1 className='sesh-name'>{sesh.fields.sessionName}</h1>
             <p className='sesh-date'>{sesh.fields.date}</p>

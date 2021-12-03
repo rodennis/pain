@@ -50,8 +50,20 @@
   color: black;
 }
 
+.all-sessions-div {
+  position: relative;
+  bottom: 0px;
+  margin-top: 130px;
+  display: flex;
+  justify-content: center;
+}
+
 .sesh-div {
-  
+  width: 300px;
+  height: 150px;
+  background-color: #343434;
+  color: white;
+  border-radius: 10px;
 }
 
 .sesh-name {
@@ -63,5 +75,9 @@
 }
 
 .sesh-logo {
+  width: 75px;
+}
 
+.link {
+  text-decoration: none;
 }
