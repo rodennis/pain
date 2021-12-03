@@ -24,9 +24,7 @@ function NewSession() {
 
   const sessionData = {
     sessionName: sessionName,
-    movement: {
-      
-    }
+    date
   }
   
   const movementData = {
@@ -38,10 +36,10 @@ function NewSession() {
     notes
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post(sessionUrl, { fields: sessionData }, config)
-    axios.post(movementUrl, { fields: movementData }, config)
+    const sessionPost = await axios.post(sessionUrl, { fields: sessionData }, config)
+    await axios.post(movementUrl, { fields: {...movementData, session: [sessionPost.data.id]} }, config)
     navigate('/')
   }
 
@@ -62,7 +60,7 @@ function NewSession() {
         <input className='session-name' type="text" value={ sessionName } onChange={ e => {setSessionName(e.target.value)}} placeholder='Session Name'/>
           </div>
           <div className='add-a-movement'>
-        <button>+</button>
+        <button onClick={e => e.preventDefault()}>+</button>
           </div>
           <div className='date'>
         <input className='date-value' type="date" value={ date } onChange={ e => setDate(e.target.value)}/>
