@@ -14,14 +14,15 @@ function App() {
   useEffect(() => {
     const getApiData = async () => {
       const res = await axios.get(sessionUrl, config)
-      setSession(res.data.records[0].fields.movement);
+      setSession(res.data);
+      console.log(session);
     }
     getApiData()
   }, [])
 
   useEffect(() => {
     const getMovementData = async () => {
-      const res = await axios.get(`${movementUrl}/${session}`, config)
+      const res = await axios.get(`${movementUrl}`, config)
       setMovements(res.data.records);
     }
     getMovementData()

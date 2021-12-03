@@ -24,6 +24,9 @@ function NewSession() {
 
   const sessionData = {
     sessionName: sessionName,
+    movement: {
+      
+    }
   }
   
   const movementData = {
