@@ -22,6 +22,10 @@ function NewSession() {
   const [sets, setSets] = useState('')
   const [notes, setNotes] = useState('')
 
+  const handleCancel = () => {
+    navigate('/')
+  }
+
   return (
     <div>
       <div className="nav">
