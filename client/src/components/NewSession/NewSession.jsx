@@ -7,7 +7,7 @@ import './NewSession.css'
 import Movement from '../Movement/Movement'
 import { sessionUrl, movementUrl, config } from '../Services/index'
 import axios from 'axios'
-import TextField from '@mui/material/TextField';
+import MovementTwo from '../MovementTwo'
 
 
 function NewSession(props) {
@@ -83,6 +83,7 @@ function NewSession(props) {
             sets={sets} setSets={setSets}
             notes={notes} setNotes={setNotes}
             />
+            <MovementTwo className='move2'/>
             </div>
           <div className="action-buttons">
             <button className='send-session'>Add</button>
