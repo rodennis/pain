@@ -7,6 +7,7 @@ import './NewSession.css'
 import Movement from '../Movement/Movement'
 import { sessionUrl, movementUrl, config } from '../Services/index'
 import axios from 'axios'
+import TextField from '@mui/material/TextField';
 
 
 function NewSession(props) {
@@ -58,13 +59,20 @@ function NewSession(props) {
       <div className='form-div'>
         <form className='session' onSubmit={ handleSubmit }>
           <div className='name'>
-        <input className='session-name' type="text" value={ sessionName } onChange={ e => {setSessionName(e.target.value)}} placeholder='Session Name'/>
+            <label>
+              <input className='session-name' type="text"
+                value={sessionName}
+                onChange={e => { setSessionName(e.target.value) }}
+                placeholder='Session Name' />
+            </label>
           </div>
           <div className='add-a-movement'>
         <button onClick={e => e.preventDefault()}>+</button>
           </div>
           <div className='date'>
-        <input className='date-value' type="date" value={ date } onChange={ e => setDate(e.target.value)}/>
+            <input className='date-value'
+              type="date" value={date}
+              onChange={e => setDate(e.target.value)} />
           </div>
           <Movement
             movement={movement} setMovement={setMovement}
