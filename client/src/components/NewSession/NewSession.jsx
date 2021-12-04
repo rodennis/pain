@@ -74,6 +74,7 @@ function NewSession(props) {
               type="date" value={date}
               onChange={e => setDate(e.target.value)} />
           </div>
+          <div className='sessions-div'>
           <Movement
             movement={movement} setMovement={setMovement}
             weight={weight} setweight={setweight}
@@ -81,7 +82,8 @@ function NewSession(props) {
             reps={reps} setReps={setReps}
             sets={sets} setSets={setSets}
             notes={notes} setNotes={setNotes}
-          />
+            />
+            </div>
           <div className="action-buttons">
             <button className='send-session'>Add</button>
             <button onClick={ handleCancel } className='cancel-session'>Cancel</button>

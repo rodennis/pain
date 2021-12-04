@@ -12,12 +12,34 @@
   height: 500px;
   display: grid;
   grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 0.5fr 0.1fr 1fr 1fr ;
+  grid-template-rows: 0.5fr 0.1fr 1fr 1fr 0.4fr;
   grid-template-areas: 
     "N N N N"
     "A A D D"
-    "M M M M";
+    "M M M M"
+    "M M M M"
+    "B B B B";
+    ;
     box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+}
+
+.sessions-div {
+  border: 2px solid  rgb(0, 0, 0, 0.3);
+  border-radius: 5px;
+  width: 380px;
+  margin: 10px;
+  margin-top: -10px;
+  grid-area: M;
+  overflow-y:auto;
+  display: grid;
+  grid-template-columns: 380px;
+  grid-template-rows: 130px 130px 130px 130px;
+  grid-template-areas: 
+  "Z"
+  "Y"
+  "W"
+  "X"
+   
 }
 
 .name {
@@ -42,6 +64,7 @@
 
 .add-a-movement {
   grid-area: A;
+  margin-top: 5px;
 }
 
 .add-a-movement button {
@@ -51,7 +74,7 @@
   border-style: none;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  background: rgb(255, 255, 255, 0.1);
+  background: transparent;
   font-size: 20px;
   bottom: 20px;
   position: relative;
@@ -61,11 +84,13 @@
 }
 
 .add-a-movement button:hover{
-  transform: scale(0.7);
+  transform: scale(1.1);
+  background-color: rgb(255, 255, 255, 0.1)
 }
 
 .date {
   grid-area: D;
+  margin-top: 10px;
 }
 
 .date-value {
@@ -83,7 +108,7 @@
 
 .movement {
   display: grid;
-  grid-area: M;
+  grid-area: Z;
   grid-template-columns: 75px 100px;
   grid-template-rows: 0.5fr 0.5fr 1fr; 
   grid-template-areas: 
@@ -91,10 +116,10 @@
     "W E T T"
     "S P T T";
     border-radius: 5px;
-    margin-right: 25px;
-    margin-left: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
     height: 130px;
-    margin-top: -5px;
+    margin-top: 10px;
     background-color: rgb(255, 255, 255, 0.1);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -193,13 +218,17 @@
 
 .action-buttons {
   width: 400px;
+  position: relative;
+  margin-top: -120px;
+
 }
 
 .send-session {
   height: 25px;
   width: 75px;
   border-radius: 20px;
-  border: 2px solid rgb(0, 0, 0, 0.5);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background: transparent;
   top: 135px;
   position: relative;
@@ -207,27 +236,32 @@
   color: white;
   font-family: 'oswald';
   cursor: pointer;
+  transition: transform .5s;
 }
 
 .send-session:hover {
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: rgb(255, 255, 255, 0.1);
+  transform: scale(1.1);
 }
 
 .cancel-session {
   height: 25px;
   width: 75px;
   border-radius: 20px;
-  border: 2px solid rgb(0, 0, 0, 0.5);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background: transparent;
   top: 135px;
   position: relative;
   color: white;
   font-family: 'oswald';
   cursor: pointer;
+  transition: transform .5s;
 }
 
 .cancel-session:hover {
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: rgb(255, 255, 255, 0.1);
+  transform: scale(1.1);
 }
 
 
