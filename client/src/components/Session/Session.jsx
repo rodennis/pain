@@ -13,7 +13,7 @@ function Session(props) {
   const navigate = useNavigate()
   const params = useParams()
   const [sesh, setSesh] = useState({})
-  const [movements, setMovements] = useState({})
+  const [movements, setMovements] = useState([])
 
   useEffect(() => {
     const foundSesh = props.session.find(sesh => {
@@ -23,11 +23,14 @@ function Session(props) {
   }, [params.id, props.session])
 
   useEffect(() => {
-    const foundMove = props.movements.find(move => {
-     return move.id === sesh.fields.movements
-    })
-    setMovements(foundMove);
-  }, [sesh])
+    // const foundMove = props.movements.find(move => {
+    //  return move.id === sesh.fields.movements[0]
+    // })
+    const foundMove2 = props.movements.find(move => {
+      return move.id === sesh.fields.movementtwo[0]
+     })
+    setMovements(foundMove2);
+  }, [props.movements, sesh])
 
   const handleDelete = async () => {
     const res = await axios.delete(`${sessionUrl}/${params.id}`, config)
@@ -63,7 +66,7 @@ function Session(props) {
             </div>
           <div className="action-buttons">
             <button className='send-session'>Edit</button>
-            <button onClick={ handleDelete} className='cancel-session'>Delete</button>
+            <button onClick={ handleDelete } className='cancel-session'>Delete</button>
           </div>
       </form>
       </div>
