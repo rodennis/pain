@@ -3,7 +3,7 @@ import Logo from '../photos/logo.png'
 import Movement from '../Movement/Movement'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
-import { sessionUrl, config } from '../Services/index'
+import { sessionUrl, config, movementUrl } from '../Services/index'
 import axios from 'axios'
 
  
@@ -20,21 +20,18 @@ function Session(props) {
      return sesh.id === params.id
     })
     setSesh(foundSesh);
-  }, [params.id, props.session])
+    const getData = async () => {
+      sesh.fields.movements.forEach(move => {
+        await axios.post(`${movementUrl}/${move}`, config)
+      })
+    }
+  }, [])
 
-  useEffect(() => {
-    // if (firstUpdate.current) {
-    //   firstUpdate.current = false;
-    //   return;
-    // }
-    const foundMove = props.movements.find(move => {
-      sesh.fields.movements.find(movement => {
-        return move.id === movements
-     })
-    })
-    setMovements(foundMove)
-    console.log(movements);
-  }, [sesh, props.movements])
+  // useEffect(() => {
+  //   sesh.fields.movements.forEach(async move => {
+  //     await axios.post(`${movementUrl}/${move}`, config)
+  //   })
+  // }, [sesh.fields])
 
   const handleDelete = async (e) => {
     e.preventDefault()

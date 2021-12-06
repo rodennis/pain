@@ -10,8 +10,3 @@ export const config = {
       Authorization: `Bearer ${KEY}`
     }
 }
-
-export const postSession = async (sessionData) => {
-  const response = await axios.post(sessionUrl, { fields: sessionData }, config)
-  return response.data
-}
