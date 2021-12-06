@@ -22,8 +22,9 @@ function HomePage(props) {
         </div>
       </div>
       <div className='all-sessions-div'>
-      {props.movements[0] ? 
-          // <h1>hello world</h1>
+        {
+          props.movements[0]
+          ?
           props.session.map(sesh => (
             <Link className='link' to={`/session/${sesh.id}`}>
             <div className='sesh-div'>

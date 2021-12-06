@@ -75,12 +75,10 @@ function NewSession(props) {
       <div className='form-div'>
         <form className='session' onSubmit={ handleSubmit }>
           <div className='name'>
-            <label>
               <input className='session-name' type="text"
                 value={sessionName}
                 onChange={e => { setSessionName(e.target.value) }}
                 placeholder='Session Name' />
-            </label>
           </div>
           <div className='add-a-movement'>
         <button onClick={e => e.preventDefault()}>+</button>
