@@ -1,6 +1,5 @@
 import React from 'react'
 import Logo from '../photos/logo.png'
-import MovementTwo from '../MovementTwo'
 import Movement from '../Movement/Movement'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
