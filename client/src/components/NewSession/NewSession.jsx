@@ -8,34 +8,80 @@ import Movement from '../Movement/Movement'
 import { sessionUrl, movementUrl, config } from '../Services/index'
 import axios from 'axios'
 
+
 function NewSession(props) {
 
   const navigate = useNavigate()
+
   const [sessionName, setSessionName] = useState('')
   const [date, setDate] = useState('')
-  const [components, setComponents] = useState([<Movement />])
+  
+  const [sessionId, setSessionId] = useState('')
+  const [toggleMovement, setToggleMovement] = useState(false)
 
+  const [formData, setFormData] = useState([
+    {
+      movement: '',
+      weight: '',
+      rpe: '',
+      reps: '',
+      sets: '',
+      notes: '',
+      session: [
+        ""
+      ]
+    }
+  ])
+  
   const sessionData = {
     sessionName: sessionName,
     date
   }
 
-  const handleSubmit = async (e) => {
+  const handleSessionSubmit = async (e, movementArray) => {
     e.preventDefault()
     const sessionPost = await axios.post(sessionUrl, { fields: sessionData }, config)
-    // await axios.post(movementUrl, { fields: {...movementData, session: [sessionPost.data.id]} }, config)
+    setSessionId(sessionPost.data.id)
+    setToggleMovement(true)
+    formData.forEach(async movement => {
+      await axios.post(movementUrl, { fields: { ...movement, session: [sessionPost.data.id] } }, config)
+    })
     navigate('/')
-    props.setToggle(prevToggle => !prevToggle)
   }
-  
+
   const handleCancel = () => {
     navigate('/')
   }
-  
-  const handleAdd = (e) => {
-    e.preventDefault()
-    setComponents([...components, <Movement />])
-  }
+
+  const handleChange = (e, index) => {
+    const { name, value } = e.target;
+    const form = [...formData];
+    form[index][name] = value;
+    form[index].session[0] = sessionId;
+    setFormData(form);
+  };
+
+  const handleAddInput = () => {
+    setFormData([...formData,
+      {
+        movement: '',
+        weight: '',
+        rpe: '',
+        reps: '',
+        sets: '',
+        notes: '',
+        session: [
+          ''
+        ]
+      }
+    ]);
+  };
+
+  const handleRemoveInput = (index) => {
+    const form = [...formData];
+    form.splice(index, 1);
+    setFormData(form);
+  };
 
   return (
     <div className='container'>
@@ -45,7 +91,7 @@ function NewSession(props) {
         </div>
       </div>
       <div className='form-div'>
-        <form className='session' onSubmit={ handleSubmit }>
+        <form className='session' onSubmit={ handleSessionSubmit }>
           <div className='name'>
               <input className='session-name' type="text"
                 value={sessionName}
@@ -53,7 +99,7 @@ function NewSession(props) {
                 placeholder='Session Name' />
           </div>
           <div className='add-a-movement'>
-        <button onClick={ handleAdd }>+</button>
+            <button onClick={ handleAddInput } type='button'>+</button>
           </div>
           <div className='date'>
             <input className='date-value'
@@ -62,11 +108,15 @@ function NewSession(props) {
           </div>
           <div className='sessions-div'>
             {
-              components.map(comp => comp)
+              <Movement
+                formData={formData}
+                handleChange={handleChange}
+                handleRemoveInput={handleRemoveInput}
+              />
             }
             </div>
           <div className="action-buttons">
-            <button className='send-session'>Add</button>
+            <button onClick={ handleSessionSubmit }className='send-session'>Add</button>
             <button onClick={ handleCancel } className='cancel-session'>Cancel</button>
           </div>
       </form>

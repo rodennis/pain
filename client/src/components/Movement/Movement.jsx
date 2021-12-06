@@ -1,58 +1,52 @@
 import React from 'react'
-import { useState } from 'react'
-import { movementUrl, config } from '../Services/index'
-import axios from 'axios'
 
 function Movement(props) {
-
-  const [movement, setMovement] = useState('')
-  const [weight, setweight] = useState('')
-  const [rpe, setRpe] = useState('')
-  const [reps, setReps] = useState('')
-  const [sets, setSets] = useState('')
-  const [notes, setNotes] = useState('')
-
-  const movementData = {
-    movement,
-    weight,
-    rpe,
-    reps,
-    sets,
-    notes
-  }
-
-  const moveMentPost = async () => {
-    await axios.post(movementUrl, { fields: {...movementData, session: [sessionPost.data.id]} }, config)
-    
-  } 
+  
+  const {formData, handleChange, handleRemoveInput} = props
 
   return (
-    <div className='movement'>
-              <input className='movement-name' type="text"
-                value={movement}
-                onChange={e => setMovement(e.target.value)}
-                placeholder='Movement' /><br />
-              <input className='weight' type="text"
-                value={weight}
-                onChange={e => setweight(e.target.value)}
-                placeholder='lbs' />
-              <input className='rpe' type="text"
-                value={rpe}
-                onChange={e => setRpe(e.target.value)}
-                placeholder='RPE' /><br />
-              <input className='reps' type="text"
-                value={reps}
-                onChange={e => setReps(e.target.value)}
-                placeholder='Reps' />
-              <input className='sets' type="text"
-                value={sets}
-                onChange={e => setSets(e.target.value)}
-                placeholder='Sets' />
-              <textarea className='notes'
-                value={notes}
-                onChange={e => setNotes(e.target.value)} tyname="" id="" cols="20" rows="8"
-                placeholder='Notes'></textarea>
-        </div>
+    <>
+      {formData.map((input, index) => (
+        <>
+        <div className='movement'>
+          <input className='movement-name' type="text"
+              value={input.movement}
+              name='movement'
+            onChange={e => handleChange(e, index)}
+            placeholder='Movement' /><br />
+          <input className='weight' type="text"
+              value={input.weight}
+              name='weight'
+            onChange={e => handleChange(e, index)}
+            placeholder='lbs' />
+          <input className='rpe' type="text"
+              value={input.rpe}
+              name='rpe'
+            onChange={e => handleChange(e, index)}
+            placeholder='RPE' /><br />
+          <input className='reps' type="text"
+              value={input.reps}
+              name='reps'
+            onChange={e => handleChange(e, index)}
+            placeholder='Reps' />
+          <input className='sets' type="text"
+              value={input.sets}
+              name='sets'
+            onChange={e => handleChange(e, index)}
+            placeholder='Sets' />
+          <textarea className='notes'
+              value={input.notes}
+              name='notes'
+            onChange={e => handleChange(e, index)} tyname="" id="" cols="20" rows="8"
+            placeholder='Notes'/>
+          </div>
+          {formData.length > 1 && (
+                <button onClick={() => handleRemoveInput(index)} type='button'>X</button>
+              )}
+
+          </>
+      ))}
+    </>
   )
 }
 
