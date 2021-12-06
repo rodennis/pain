@@ -46,6 +46,7 @@ function NewSession(props) {
     formData.forEach(async movement => {
       await axios.post(movementUrl, { fields: { ...movement, session: [sessionPost.data.id] } }, config)
     })
+    props.setToggle(prevToggle => !prevToggle)
     navigate('/')
   }
 
@@ -116,7 +117,7 @@ function NewSession(props) {
             }
             </div>
           <div className="action-buttons">
-            <button onClick={ handleSessionSubmit }className='send-session'>Add</button>
+            <button className='send-session'>Add</button>
             <button onClick={ handleCancel } className='cancel-session'>Cancel</button>
           </div>
       </form>

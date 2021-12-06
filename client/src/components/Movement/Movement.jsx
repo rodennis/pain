@@ -43,7 +43,6 @@ function Movement(props) {
           {formData.length > 1 && (
                 <button onClick={() => handleRemoveInput(index)} type='button'>X</button>
               )}
-
           </>
       ))}
     </>

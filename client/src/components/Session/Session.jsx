@@ -23,15 +23,18 @@ function Session(props) {
   }, [params.id, props.session])
 
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
+    // if (firstUpdate.current) {
+    //   firstUpdate.current = false;
+    //   return;
+    // }
     const foundMove = props.movements.find(move => {
-     return move.id === sesh.fields.movements[0]
+      sesh.fields.movements.find(movement => {
+        return move.id === movements
+     })
     })
-    setMovements(foundMove);
-  }, [props.movements, sesh.fields])
+    setMovements(foundMove)
+    console.log(movements);
+  }, [sesh, props.movements])
 
   const handleDelete = async (e) => {
     e.preventDefault()
@@ -44,7 +47,7 @@ function Session(props) {
 
   return (
     <div>
-       <div className="logo-div">
+       {/* <div className="logo-div">
        <Link to='/'><img className='logo' src={Logo} alt="" /></Link>
         </div>
       <div className='form-div'>
@@ -66,15 +69,19 @@ function Session(props) {
                 type="date"
                 value={sesh.fields.date} readOnly />
             </div>
-            <div className='sessions-div'>
-              <div className='movement'>
-                <input className='movement-name' type="text" value={movements.fields.movement} readOnly /><br />
-                <input className='weight' type="text" value={movements.fields.weight} readOnly />
-                <input className='rpe' type="text" value={movements.fields.rpe} readOnly /><br />
-                <input className='reps' type="text" value={movements.fields.reps} readOnly />
-                <input className='sets' type="text" value={movements.fields.sets} readOnly />
-                <textarea className='notes' value={movements.fields.notes} readOnly></textarea>
-              </div>
+              <div className='sessions-div'>
+                {
+                  movements.map(move => {
+                    <div className='movement'>
+                      <input className='movement-name' type="text" value={move.fields.movement} readOnly /><br />
+                      <input className='weight' type="text" value={move.fields.weight} readOnly />
+                      <input className='rpe' type="text" value={move.fields.rpe} readOnly /><br />
+                      <input className='reps' type="text" value={move.fields.reps} readOnly />
+                      <input className='sets' type="text" value={move.fields.sets} readOnly />
+                      <textarea className='notes' value={move.fields.notes} readOnly></textarea>
+                    </div>
+                  })
+                }
             </div>
             <div className="action-buttons">
               <button className='send-session'>Edit</button>
@@ -83,7 +90,7 @@ function Session(props) {
           </form>
           : <h1>Loading...</h1>
         }
-      </div>
+      </div> */}
     </div>
   )
 }
