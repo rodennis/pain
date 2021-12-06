@@ -13,8 +13,9 @@ function Session(props) {
   const firstUpdate = useRef(true)
   const navigate = useNavigate()
   const params = useParams()
-  const [sesh, setSesh] = useState({})
+  const [sesh, setSesh] = useState([])
   const [movements, setMovements] = useState([])
+  const [toggle, setToggle] = useState(false)
 
 
   useEffect(() => {
@@ -33,13 +34,15 @@ function Session(props) {
      return move.id === sesh.fields.movements[0]
     })
     setMovements(foundMove);
-  }, [props.movements, sesh])
+    setToggle(prevToggle => !prevToggle)
+  }, [props.movements, sesh.fields])
 
-  const handleDelete = async () => {
+  const handleDelete = async (e) => {
+    e.preventDefault()
     const res = await axios.delete(`${sessionUrl}/${params.id}`, config)
-    props.setToggle(prevToggle => !prevToggle)
     if (res) {
       navigate('/')
+      props.setToggle(prevToggle => !prevToggle)
     }
   }
 
@@ -51,7 +54,7 @@ function Session(props) {
       <div className='form-div'>
 
         {
-          sesh.fields && movements.fields
+          toggle === true
             ?           
           <form className='session'>
             <div className='name'>
