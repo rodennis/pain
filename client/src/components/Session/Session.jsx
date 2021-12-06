@@ -15,8 +15,6 @@ function Session(props) {
   const params = useParams()
   const [sesh, setSesh] = useState([])
   const [movements, setMovements] = useState([])
-  const [toggle, setToggle] = useState(false)
-
 
   useEffect(() => {
     const foundSesh = props.session.find(sesh => {
@@ -34,7 +32,6 @@ function Session(props) {
      return move.id === sesh.fields.movements[0]
     })
     setMovements(foundMove);
-    setToggle(prevToggle => !prevToggle)
   }, [props.movements, sesh.fields])
 
   const handleDelete = async (e) => {
@@ -54,7 +51,7 @@ function Session(props) {
       <div className='form-div'>
 
         {
-          toggle === true
+          sesh.fields && movements.fields
             ?           
           <form className='session'>
             <div className='name'>
