@@ -232,7 +232,7 @@
   width: 400px;
   position: relative;
   margin-top: -120px;
-
+  height: 0px;
 }
 
 .send-session {

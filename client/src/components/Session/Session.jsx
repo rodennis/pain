@@ -45,7 +45,7 @@ function Session(props) {
       <div className='form-div'>
 
         {
-          sesh.fields && movements.fields
+          sesh.fields
             ?           
           <form className='session'>
             <div className='name'>
@@ -62,8 +62,8 @@ function Session(props) {
                 value={sesh.fields.date} readOnly />
             </div>
               <div className='sessions-div'>
-                {
-                  movements.map(move => {
+              {
+                  movements.map(move => (
                     <div className='movement'>
                       <input className='movement-name' type="text" value={move.fields.movement} readOnly /><br />
                       <input className='weight' type="text" value={move.fields.weight} readOnly />
@@ -71,8 +71,8 @@ function Session(props) {
                       <input className='reps' type="text" value={move.fields.reps} readOnly />
                       <input className='sets' type="text" value={move.fields.sets} readOnly />
                       <textarea className='notes' value={move.fields.notes} readOnly></textarea>
-                    </div>
-                  })
+                    </div> 
+                  )) 
                 }
             </div>
             <div className="action-buttons">
