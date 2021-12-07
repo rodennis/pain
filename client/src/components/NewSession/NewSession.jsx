@@ -64,7 +64,7 @@ function NewSession(props) {
             notes: move.fields.notes,
           }
         ])
-  ))
+      ))
     }
   }, [params.id, props.session, props.movements])
 

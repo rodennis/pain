@@ -13,21 +13,23 @@ function Session(props) {
   const [sesh, setSesh] = useState([])
   const [movements, setMovements] = useState([])
 
-  useEffect(() => {
-    const foundSesh = props.session.find(sesh => {
-      return sesh.id === params.id
-    })
-    setSesh(foundSesh);
-
-    const moves = props.movements.filter((movement) => {
-      if (movement.fields.session) {
-        return movement.fields?.session[0] === foundSesh?.id
-      } else {
-        return false
-      }
+  
+    useEffect(() => {
+      const foundSesh = props.session.find(sesh => {
+        return sesh.id === params.id
       })
-    setMovements(moves)
-  }, [params.id, props.session, props.movements])
+      setSesh(foundSesh);
+
+      const moves = props.movements.filter((movement) => {
+        if (movement.fields.session) {
+          return movement.fields?.session[0] === foundSesh?.id
+        } else {
+          return false
+        }
+      })
+      setMovements(moves)
+    }, [params.id, props.session, props.movements])
+  
 
   const handleDelete = async (e) => {
     e.preventDefault()
@@ -46,8 +48,7 @@ function Session(props) {
       <div className='form-div'>
 
         {
-          sesh.fields
-            ?           
+          sesh && sesh.fields ?         
           <form className='session'>
             <div className='name'>
               <label>

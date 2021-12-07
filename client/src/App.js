@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
 import { sessionUrl, config, movementUrl } from './components/Services/index'
 import HomePage from './components/HomePage/HomePage';
@@ -9,14 +9,24 @@ import Session from './components/Session/Session'
 
 function App() {
 
+  const mountedRef = useRef(false)
   const [session, setSession] = useState([])
   const [movements, setMovements] = useState([])
   const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
+    mountedRef.current = true
+    return () => {
+      mountedRef.current = false
+    }
+  }, [])
+
+  useEffect(() => {
     const getApiData = async () => {
       const res = await axios.get(sessionUrl, config)
-      setSession(res.data.records);
+      if (mountedRef.current) {
+        setSession(res.data.records);
+      }
     }
     getApiData()
   }, [toggle])
@@ -24,7 +34,9 @@ function App() {
   useEffect(() => {
     const getMovementData = async () => {
       const res = await axios.get(movementUrl, config)
-      setMovements(res.data.records);
+      if (mountedRef.current) {
+        setMovements(res.data.records);
+      }
     }
     getMovementData()
   }, [session])
