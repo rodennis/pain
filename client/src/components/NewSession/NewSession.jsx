@@ -1,8 +1,8 @@
 import React from 'react'
 import Logo from '../photos/logo.png'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import './NewSession.css'
 import Movement from '../Movement/Movement'
 import { sessionUrl, movementUrl, config } from '../Services/index'
@@ -11,10 +11,12 @@ import axios from 'axios'
 
 function NewSession(props) {
 
+  const params = useParams()
   const navigate = useNavigate()
   const [sessionName, setSessionName] = useState('')
   const [date, setDate] = useState('')  
   const [sessionId, setSessionId] = useState('')
+  const [movementArray, setMovementArray] = useState([])
   const [formData, setFormData] = useState([
     {
       movement: '',
@@ -34,15 +36,58 @@ function NewSession(props) {
     date
   }
 
+  useEffect(() => {
+    if (props.session) {
+      const foundSesh = props.session.find(sesh => {
+        return sesh.id === params.id
+      })
+      if (foundSesh) {
+        setSessionName(foundSesh.fields.sessionName)
+        setDate(foundSesh.fields.date)
+      }
+    }
+    if (props.movements) {
+      const moves = props.movements.filter((movement) => {
+        if (movement.fields.session) {
+          return movement.fields?.session[0] === params.id
+        }
+      })
+      setMovementArray(moves)
+      movementArray.map(move => (
+        setFormData([...formData,
+          {
+            movement: move.fields.movement,
+            weight: move.fields.weight,
+            rpe: move.fields.rpe,
+            reps: move.fields.reps,
+            sets: move.fields.sets,
+            notes: move.fields.notes,
+          }
+        ])
+  ))
+    }
+  }, [params.id, props.session, props.movements])
+
   const handleSessionSubmit = async (e) => {
     e.preventDefault()
-    const sessionPost = await axios.post(sessionUrl, { fields: sessionData }, config)
-    setSessionId(sessionPost.data.id)
-    formData.forEach(async movement => {
-      await axios.post(movementUrl, { fields: { ...movement, session: [sessionPost.data.id] } }, config)
-    })
-    props.setToggle(prevToggle => !prevToggle)
-    navigate('/')
+    if (props.session) {
+      const res = await axios.put(`${sessionUrl}/${params.id}`, { fields: sessionData }, config)
+      formData.forEach(async movement => {
+        await axios.post(movementUrl, { fields: { ...movement, session: [res.data.id] } }, config)
+      })
+      if (res) {
+        navigate(`/session/${params.id}`)
+      }
+    }
+    else {
+      const sessionPost = await axios.post(sessionUrl, { fields: sessionData }, config)
+      setSessionId(sessionPost.data.id)
+      formData.forEach(async movement => {
+        await axios.post(movementUrl, { fields: { ...movement, session: [sessionPost.data.id] } }, config)
+      })
+      props.setToggle(prevToggle => !prevToggle)
+      navigate('/')
+    }
   }
 
   const handleCancel = () => {
