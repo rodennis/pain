@@ -29,7 +29,7 @@ function HomePage(props) {
             <Link key={ sesh.id} className='link' to={`/session/${sesh.id}`}>
               <div className='sesh-div'>
           <h1 className='sesh-name'>{sesh.fields.sessionName}</h1>
-                <p className='sesh-date'>{sesh.fields.date ? sesh.fields.date : <p>No Date Provided</p>}</p>
+                <h4 className='sesh-date'>{sesh.fields.date ? sesh.fields.date : <p>No Date Provided</p>}</h4>
             <img className='sesh-logo' src={seshLogo} alt="logo" />
           </div>
             </Link>

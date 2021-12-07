@@ -12,13 +12,9 @@ import axios from 'axios'
 function NewSession(props) {
 
   const navigate = useNavigate()
-
   const [sessionName, setSessionName] = useState('')
-  const [date, setDate] = useState('')
-  
+  const [date, setDate] = useState('')  
   const [sessionId, setSessionId] = useState('')
-  const [toggleMovement, setToggleMovement] = useState(false)
-
   const [formData, setFormData] = useState([
     {
       movement: '',
@@ -38,11 +34,10 @@ function NewSession(props) {
     date
   }
 
-  const handleSessionSubmit = async (e, movementArray) => {
+  const handleSessionSubmit = async (e) => {
     e.preventDefault()
     const sessionPost = await axios.post(sessionUrl, { fields: sessionData }, config)
     setSessionId(sessionPost.data.id)
-    setToggleMovement(true)
     formData.forEach(async movement => {
       await axios.post(movementUrl, { fields: { ...movement, session: [sessionPost.data.id] } }, config)
     })

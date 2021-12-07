@@ -1,6 +1,5 @@
 import React from 'react'
 import Logo from '../photos/logo.png'
-import Movement from '../Movement/Movement'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { sessionUrl, config } from '../Services/index'
@@ -23,6 +22,8 @@ function Session(props) {
     const moves = props.movements.filter((movement) => {
       if (movement.fields.session) {
         return movement.fields?.session[0] === foundSesh?.id
+      } else {
+        return false
       }
       })
     setMovements(moves)
@@ -64,7 +65,7 @@ function Session(props) {
               <div className='sessions-div'>
               {
                   movements.map(move => (
-                    <div className='movement'>
+                    <div key={ move.id } className='movement'>
                       <input className='movement-name' type="text" value={move.fields.movement} readOnly /><br />
                       <input className='weight' type="text" value={move.fields.weight} readOnly />
                       <input className='rpe' type="text" value={move.fields.rpe} readOnly /><br />

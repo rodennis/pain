@@ -17,10 +17,9 @@ function App() {
     const getApiData = async () => {
       const res = await axios.get(sessionUrl, config)
       setSession(res.data.records);
-      console.log(session);
     }
     getApiData()
-  }, [])
+  }, [toggle])
 
   useEffect(() => {
     const getMovementData = async () => {
