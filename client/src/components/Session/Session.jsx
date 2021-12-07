@@ -3,7 +3,7 @@ import Logo from '../photos/logo.png'
 import Movement from '../Movement/Movement'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
-import { sessionUrl, config } from '../Services/index'
+import { sessionUrl, movementUrl, config } from '../Services/index'
 import axios from 'axios'
 
  
@@ -32,13 +32,17 @@ function Session(props) {
       moveId.push(move)
     ))
 
-    const foundMovements = moveId.map(id => {
-      props.movements.find(move => {
-          return move.id === id
-      })
-    })
-    setMovements(foundMovements)
-   
+   const res = moveId.map(async id => {
+   return await axios.get(`${movementUrl}/${id}`, config)
+   })
+    setMovements(res)
+
+    // const foundMovements = moveId.map(id => {
+    //   props.movements.find(move => {
+    //       return move.id === id
+    //   })
+    // })
+    // setMovements(foundMovements)
   }, [sesh, props.movements])
 
   const handleDelete = async (e) => {
