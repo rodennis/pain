@@ -3,7 +3,7 @@ import Logo from '../photos/logo.png'
 import Movement from '../Movement/Movement'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
-import { sessionUrl, config, movementUrl } from '../Services/index'
+import { sessionUrl, config } from '../Services/index'
 import axios from 'axios'
 
  
@@ -13,6 +13,7 @@ function Session(props) {
   const navigate = useNavigate()
   const params = useParams()
   const [sesh, setSesh] = useState([])
+  const [moveId, setMoveId] = useState([])
   const [movements, setMovements] = useState([])
 
   useEffect(() => {
@@ -20,18 +21,25 @@ function Session(props) {
      return sesh.id === params.id
     })
     setSesh(foundSesh);
-    const getData = async () => {
-      sesh.fields.movements.forEach(move => {
-        await axios.post(`${movementUrl}/${move}`, config)
-      })
-    }
-  }, [])
+  }, [params.id, props.session])
 
-  // useEffect(() => {
-  //   sesh.fields.movements.forEach(async move => {
-  //     await axios.post(`${movementUrl}/${move}`, config)
-  //   })
-  // }, [sesh.fields])
+  useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+    sesh.fields.movements.forEach(move => (
+      moveId.push(move)
+    ))
+
+    const foundMovements = moveId.map(id => {
+      props.movements.find(move => {
+          return move.id === id
+      })
+    })
+    setMovements(foundMovements)
+   
+  }, [sesh, props.movements])
 
   const handleDelete = async (e) => {
     e.preventDefault()
