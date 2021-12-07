@@ -10,11 +10,11 @@ PAIN is a effective, to the point workout app. In the age of millions of apps on
 
 ## [Wireframes](https://www.figma.com/file/2wN4bziabZIT0CI8t6DTJb/PAIN?node-id=16%3A142)
 
-![Getting Started](createSession.png)
+![Getting Started](./client/src/components/photos/createSession.png)
 
 
 ## [Component Hierarchy](https://drive.google.com/file/d/1Vq2jO9JwvXZcufjqjo9cXe9uhgFR4_FV/view?usp=sharing)
-![Getting Started](hierarchy.png)
+![Getting Started](./client/src/components/photos/hierarchy.png)
 
 
 ## API and Data Sample

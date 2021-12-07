@@ -32,17 +32,17 @@ function Session(props) {
       moveId.push(move)
     ))
 
-   const res = moveId.map(async id => {
-   return await axios.get(`${movementUrl}/${id}`, config)
-   })
-    setMovements(res)
+  //  const res = moveId.map(async id => {
+  //  return await axios.get(`${movementUrl}/${id}`, config)
+  //  })
+  //   setMovements(res)
 
-    // const foundMovements = moveId.map(id => {
-    //   props.movements.find(move => {
-    //       return move.id === id
-    //   })
-    // })
-    // setMovements(foundMovements)
+    const foundMovements = moveId.map(id => {
+      props.movements.find(move => {
+          return move.id === id
+      })
+    })
+    setMovements(foundMovements)
   }, [sesh, props.movements])
 
   const handleDelete = async (e) => {
