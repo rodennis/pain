@@ -97,7 +97,7 @@ function NewSession(props) {
               <input className='session-name' type="text"
                 value={sessionName}
                 onChange={e => { setSessionName(e.target.value) }}
-                placeholder='Session Name' />
+                placeholder='Session Name' required/>
           </div>
           <div className='add-a-movement'>
             <button onClick={ handleAddInput } type='button'>+</button>

@@ -2,48 +2,31 @@ import React from 'react'
 import Logo from '../photos/logo.png'
 import Movement from '../Movement/Movement'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState, useRef } from 'react'
-import { sessionUrl, movementUrl, config } from '../Services/index'
+import { useEffect, useState } from 'react'
+import { sessionUrl, config } from '../Services/index'
 import axios from 'axios'
 
  
 function Session(props) {
 
-  const firstUpdate = useRef(true)
   const navigate = useNavigate()
   const params = useParams()
   const [sesh, setSesh] = useState([])
-  const [moveId, setMoveId] = useState([])
   const [movements, setMovements] = useState([])
 
   useEffect(() => {
     const foundSesh = props.session.find(sesh => {
-     return sesh.id === params.id
+      return sesh.id === params.id
     })
     setSesh(foundSesh);
-  }, [params.id, props.session])
 
-  useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
-    sesh.fields.movements.forEach(move => (
-      moveId.push(move)
-    ))
-
-  //  const res = moveId.map(async id => {
-  //  return await axios.get(`${movementUrl}/${id}`, config)
-  //  })
-  //   setMovements(res)
-
-    const foundMovements = moveId.map(id => {
-      props.movements.find(move => {
-          return move.id === id
+    const moves = props.movements.filter((movement) => {
+      if (movement.fields.session) {
+        return movement.fields?.session[0] === foundSesh?.id
+      }
       })
-    })
-    setMovements(foundMovements)
-  }, [sesh, props.movements])
+    setMovements(moves)
+  }, [params.id, props.session, props.movements])
 
   const handleDelete = async (e) => {
     e.preventDefault()
@@ -56,7 +39,7 @@ function Session(props) {
 
   return (
     <div>
-       {/* <div className="logo-div">
+       <div className="logo-div">
        <Link to='/'><img className='logo' src={Logo} alt="" /></Link>
         </div>
       <div className='form-div'>
@@ -99,7 +82,7 @@ function Session(props) {
           </form>
           : <h1>Loading...</h1>
         }
-      </div> */}
+      </div>
     </div>
   )
 }

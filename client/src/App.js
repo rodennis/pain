@@ -20,7 +20,7 @@ function App() {
       console.log(session);
     }
     getApiData()
-  }, [toggle])
+  }, [])
 
   useEffect(() => {
     const getMovementData = async () => {
