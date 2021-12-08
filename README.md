@@ -81,8 +81,8 @@ PAIN is a effective, to the point workout app. In the age of millions of apps on
 
 ## Timeframes
 
-| Component | Priority | Estimated Time | Time Invested | |
-| --- | :---: |  :---: | :---: | :---: |
+| Component | Priority | Estimated Time | Time Invested |
+| --- | :---: |  :---: | :---: |
 | Setting up API | H | 3hrs| 2hrs |
 | Pseudocode | M | 3hrs| 1hr |
 | Make get request | L | 1hr | 1hr |
