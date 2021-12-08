@@ -1,4 +1,5 @@
 import React from 'react'
+import '../Movement/Movement.css'
 
 function Movement(props) {
   

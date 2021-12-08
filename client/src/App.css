@@ -5,15 +5,3 @@ body {
 .App {
   text-align: center;
 }
-
-.footer {
-  position: absolute;
-  bottom: 0px;
-  margin: auto;
-  right: 0;
-  left: 0;
-  margin-bottom: 10px;
-  font-size: 15px;
-}
-
-

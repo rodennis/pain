@@ -1,0 +1,11 @@
+.logo-div {
+  flex: 1;
+}
+
+.logo {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 40px;
+  top: 26px;
+}
