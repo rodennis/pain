@@ -45,10 +45,11 @@ function NewSession(props) {
       }
     }
     if (props.movements) {
-      const moves = props.movements.filter((movement) => {
+      const moves = props.movements.filter( movement => {
         if (movement.fields.session) {
           return movement.fields?.session[0] === params.id
         }
+        return this
       })
       setMovementArray(moves)
       movementArray.map(move => (
@@ -64,6 +65,7 @@ function NewSession(props) {
         ])
       ))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.id, props.session, props.movements])
 
   const handleSessionSubmit = async (e) => {
