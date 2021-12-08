@@ -3,8 +3,8 @@ import '../Footer/Footer.css'
 
 function Footer() {
   return (
-    <div>
-      <p className='footer'>
+    <div className='footer'>
+      <p>
         © Rodney Todd SWE General Assembly
       </p>
     </div>
