@@ -1,5 +1,4 @@
 import React from 'react'
-import Logo from '../photos/logo.png'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { sessionUrl, config } from '../Services/index'

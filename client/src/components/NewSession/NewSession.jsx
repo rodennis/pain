@@ -1,6 +1,4 @@
 import React from 'react'
-import Logo from '../photos/logo.png'
-import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import './NewSession.css'
