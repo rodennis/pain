@@ -8,60 +8,12 @@ body {
 
 @media (max-width: 600px) {
   .logo {
-    max-width: 125px;
-    max-height: 125px;
-    margin-top: 10px;
-  }
+    max-width: 100px;
+    max-height: 100px;
+    /* margin-top: 25px; */
+  } 
 
-  .session {
-    width: 300px;
-    margin: auto;
-    left: 0;
-    right: 0;
-  }
-
-  .name {
-    width: 300px;
-  }
-
-  .add-a-movement {
-    width: 150px;
-    margin-left: -20px;
-  }
-
-  .date {
-    width: 150px;
-    margin-left: -55px;
-  }
-
-  .sessions-div {
-    max-width: 280px;
-  }
-
-
-  .movement {
-    width: 260px;
-    height: 300px;
-    grid-template-columns: 150px 150px;
-    grid-template-rows: 0.5fr 0.5fr 1fr; 
-    grid-template-areas: 
-    "V V"
-    "W E"
-    "S P"
-    "T T"
-    "T T";
-  }
-
-  .send-session {
-    margin-left: -100px;
-  }
-
-  .cancel-session {
-    margin-left: -50px;
-  }
-
-  .notes {
-    margin-top: 
+  .add {
+    margin-top: -20px;
   }
 }
-

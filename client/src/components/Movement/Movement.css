@@ -123,3 +123,98 @@
   font-size: 12px;
   color: white;
 }
+
+@media (max-width: 600px) {
+
+  html, body {
+    max-height: 100vh;
+}
+
+.app {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+}
+
+  .session {
+    width: 300px;
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
+
+  .name {
+    width: 300px;
+  }
+
+  .add-a-movement {
+    width: 150px;
+    margin-left: -20px;
+  }
+
+  .date {
+    width: 150px;
+    margin-left: -55px;
+  }
+
+  .sessions-div {
+    max-width: 280px;
+  }
+
+
+  .movement {
+    width: 260px;
+    height: 260px;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 0.5fr 0.5fr 1fr; 
+    grid-template-areas: 
+    "V V"
+    "W E"
+    "S P"
+    "T T"
+    "T T";
+    overflow-x: hidden;
+  }
+
+  .movement-name {
+    margin-left: 57px;
+  }
+
+  .weight {
+    margin-left: 57px;
+  }
+
+  .sets {
+    margin-left: 57px;
+    margin-top: 5px;
+  }
+
+  .rpe {
+    margin-left: 0px;
+  }
+
+  .reps {
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+
+  .send-session {
+    margin-left: -100px;
+  }
+
+  .cancel-session {
+    margin-left: -50px;
+  }
+
+  .notes {
+  position: relative;
+  top: -15px;
+  width: 235px; 
+ }
+
+ .remove-movement {
+  margin-top: -20px;
+  position: relative;
+  left: 55px;
+}
+}
