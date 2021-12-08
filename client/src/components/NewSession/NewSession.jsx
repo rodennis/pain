@@ -6,7 +6,6 @@ import Movement from '../Movement/Movement'
 import { sessionUrl, movementUrl, config } from '../Services/index'
 import axios from 'axios'
 
-
 function NewSession(props) {
 
   const params = useParams()
