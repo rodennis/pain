@@ -1,11 +1,13 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
-import axios from 'axios';
 import { sessionUrl, config, movementUrl } from './components/Services/index'
+import axios from 'axios';
 import HomePage from './components/HomePage/HomePage';
 import NewSession from './components/NewSession/NewSession';
 import Session from './components/Session/Session'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
 
 function App() {
 
@@ -43,12 +45,14 @@ function App() {
 
   return (
     <div className="App">
+      <Header/>
       <Routes>
-        <Route path='/' element={<HomePage session={session} movements={movements}/>} />
+        <Route path='/' element={<HomePage session={session} movements={movements} />} />
         <Route path='/new-session' element={<NewSession setToggle={setToggle} />}/>
         <Route path='/session/:id' element={<Session session={session} movements={movements} toggle={toggle} setToggle={setToggle} />} />
         <Route path='/session/edit/:id' element={<NewSession session={session} movements={ movements }/>} />
       </Routes>
+      <Footer />
     </div>
   );
 }

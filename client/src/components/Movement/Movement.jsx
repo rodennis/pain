@@ -39,10 +39,9 @@ function Movement(props) {
               name='notes'
             onChange={e => handleChange(e, index)} tyname="" id="" cols="20" rows="8"
             placeholder='Notes'/>
-          </div>
-          {formData.length > 1 && (
-                <button onClick={() => handleRemoveInput(index)} type='button'>X</button>
-              )}
+            <button className='remove-movement' onClick={() => handleRemoveInput(index)} type='button'>Remove</button>
+            
+            </div>
           </>
       ))}
     </>

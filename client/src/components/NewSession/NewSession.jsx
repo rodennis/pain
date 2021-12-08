@@ -126,11 +126,6 @@ function NewSession(props) {
 
   return (
     <div className='container'>
-      <div className="nav">
-        <div className="logo-div">
-        <Link to='/'><img className='logo' src={Logo} alt="" /></Link>
-        </div>
-      </div>
       <div className='form-div'>
         <form className='session' onSubmit={ handleSessionSubmit }>
           <div className='name'>

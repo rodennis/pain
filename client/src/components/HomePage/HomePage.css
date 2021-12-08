@@ -23,7 +23,8 @@
   top: 70px;
   color: black;
   text-decoration: none !important;
-  left: 250px;
+  float: right;
+  right: 50px;
   font-size: 30px;
   width: 40px;
   border-radius: 5px;
@@ -40,7 +41,7 @@
   position: relative;
   max-width: 750px;
   margin: auto;
-  top: 200px;
+  top: 50px;
   font-size: 22px;
   text-align: center;
   color: white;

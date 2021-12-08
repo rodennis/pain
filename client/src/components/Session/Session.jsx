@@ -42,11 +42,7 @@ function Session(props) {
 
   return (
     <div>
-       <div className="logo-div">
-       <Link to='/'><img className='logo' src={Logo} alt="" /></Link>
-        </div>
       <div className='form-div'>
-
         {
           sesh && sesh.fields ?         
           <form className='session'>
@@ -78,7 +74,7 @@ function Session(props) {
                 }
             </div>
             <div className="action-buttons">
-              <button className='send-session'><Link to={`/session/edit/${sesh.id}`}>Edit</Link></button>
+            <Link to={`/session/edit/${sesh.id}`}><button className='send-session'>Edit</button></Link>
               <button onClick={handleDelete} className='cancel-session'>Delete</button>
             </div>
           </form>
