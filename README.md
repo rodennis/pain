@@ -59,11 +59,11 @@ PAIN is a effective, to the point workout app. In the age of millions of apps on
 - Send user session to API
 - Display session on homepage
 - Allow user to click on card and display data at a new route
-- Allow user to edit/delete workout
-- 
+- Allow user to delete workout
 
 #### PostMVP  
 
+- Allow user to edit workout
 - Incorporate user authentication
 - Incorporate videos showing how to do workouts
 - Allow for sharing workout videos
@@ -72,33 +72,33 @@ PAIN is a effective, to the point workout app. In the age of millions of apps on
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Dec 2| Project Approval / Setup API / Retrieve data | Incomplete
-|Dec 3| Pseudocode / React  | Incomplete
-|Dec 6| React / debugging | Incomplete
-|Dec 7| CSS / bootsrap / MUI | Incomplete
+|Dec 2| Project Approval / Setup API / Retrieve data | Complete
+|Dec 3| Pseudocode / React  | Complete
+|Dec 6| React / debugging | Complete
+|Dec 7| CSS / bootsrap / MUI | Complete
 |Dec 8| MVP | Incomplete
 |Dec 9| Project Presentation | Incomplete
 
 ## Timeframes
 
-| Component | Priority | Estimated Time | Time Invested | Actual Time |
+| Component | Priority | Estimated Time | Time Invested | |
 | --- | :---: |  :---: | :---: | :---: |
-| Setting up API | H | 3hrs|  |  |
-| Pseudocode | M | 3hrs|  |  |
-| Make get request | L | 1hr |  |  |
-| Debugging | M | 4hrs|  |  |
-| Create Workout Form | H | 2hrs|  |  |
-| Make Post request | M | 4hrs|  |  |
-| Debugging | H | 2hrs|  |  |
-| Display info on Homepage | H | 4hrs|  |  |
-| Make Route for Single workout | L | 1hr|  |  |
-| Make Put request | M | 4hrs|  |  |
-| Debugging | H | 2hrs|  |  |
-| Make delete request | M | 2hrs|  |  |
-| Debugging | H | 2hrs|  |  |
-| CSS/BootStrap/MUI | H | 6hrs|  |  |
-| Display info on Homepage | H | 3hrs|  |  |
-| Total | H | 43hrs|  |  |
+| Setting up API | H | 3hrs| 2hrs |
+| Pseudocode | M | 3hrs| 1hr |
+| Make get request | L | 1hr | 1hr |
+| Debugging | M | 4hrs| 6hrs | 
+| Create Workout Form | H | 2hrs| 3hrs |
+| Make Post request | M | 4hrs | 1hr |
+| Debugging | H | 2hrs| 4hrs |
+| Display info on Homepage | H | 4hrs| 2hrs |
+| Make Route for Single workout | L | 1hr| 1hr |
+| Make Put request | M | 4hrs | 5hrs | 
+| Debugging | H | 2hrs| 2hrs | 
+| Make delete request | M | 2hrs| 1hr |
+| Debugging | H | 2hrs| 1hr |
+| CSS/BootStrap/MUI | H | 6hrs| 6hrs |
+| Display info on Homepage | H | 3hrs| 1hr |
+| Total | H | 43hrs| 37hrs |
 
 ## SWOT Analysis
 
