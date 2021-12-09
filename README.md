@@ -1,7 +1,7 @@
 # Project Overview
 
 ## Project Name
-[PAIN]()
+[PAIN](https://pain-workout.netlify.app/)
 
 
 ## Project Description
@@ -76,8 +76,8 @@ PAIN is a effective, to the point workout app. In the age of millions of apps on
 |Dec 3| Pseudocode / React  | Complete
 |Dec 6| React / debugging | Complete
 |Dec 7| CSS / bootsrap / MUI | Complete
-|Dec 8| MVP | Incomplete
-|Dec 9| Project Presentation | Incomplete
+|Dec 8| MVP | Complete
+|Dec 9| Project Presentation | Complete
 
 ## Timeframes
 
