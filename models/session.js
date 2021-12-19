@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const session = new Schema(
+const Session = new Schema(
   {
     sessionName: { type: String, required: true },
     date: { type: String },
@@ -19,3 +19,5 @@ const session = new Schema(
   },
   { timestamps: true}
 )
+
+export default mongoose.model('sessions', Session)
