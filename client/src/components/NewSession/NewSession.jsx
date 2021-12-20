@@ -31,7 +31,7 @@ function NewSession(props) {
   ])
   
   const sessionData = {
-    sessionName: sessionName,
+    sessionName,
     date
   }
 
@@ -71,24 +71,29 @@ function NewSession(props) {
 
   const handleSessionSubmit = async (e) => {
     e.preventDefault()
-    if (props.session) {
-      const res = await axios.put(`${sessionUrl}/${params.id}`, { fields: sessionData }, config)
-      formData.forEach(async movement => {
-        await axios.post(movementUrl, { fields: { ...movement, session: [res.data.id] } }, config)
-      })
-      if (res) {
-        navigate(`/session/${params.id}`)
+    // if (props.session) {
+    //   const res = await axios.put(`${sessionUrl}/${params.id}`, { fields: sessionData }, config)
+    //   formData.forEach(async movement => {
+    //     await axios.post(movementUrl, { fields: { ...movement, session: [res.data.id] } }, config)
+    //   })
+    //   if (res) {
+    //     navigate(`/session/${params.id}`)
+    //   }
+    // }
+    // else {
+    formData.forEach(async movement => {
+      const sessionData = {
+        sessionName,
+        date,
+        movements: [{...movement}]
       }
-    }
-    else {
-      const sessionPost = await api.post('/sessions', sessionData)
-      setSessionId(sessionPost.data.id)
-      formData.forEach(async movement => {
-        await axios.post('/sessions', { ...movement, session: [sessionPost.data.id] })
-      })
-      props.setToggle(prevToggle => !prevToggle)
+      const sessionPost = await api.post('/sessions', sessionData )
+        console.log(sessionPost);
+    })
+
+    props.setToggle(prevToggle => !prevToggle)
       navigate('/')
-    }
+    // }
   }
 
   const handleCancel = () => {
