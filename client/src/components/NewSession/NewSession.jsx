@@ -5,6 +5,8 @@ import './NewSession.css'
 import Movement from '../Movement/Movement'
 import { sessionUrl, movementUrl, config } from '../Services/index'
 import axios from 'axios'
+import api from '../Services/apiConfig'
+
 
 function NewSession(props) {
 
@@ -79,10 +81,10 @@ function NewSession(props) {
       }
     }
     else {
-      const sessionPost = await axios.post(sessionUrl, { fields: sessionData }, config)
+      const sessionPost = await api.post('/sessions', sessionData)
       setSessionId(sessionPost.data.id)
       formData.forEach(async movement => {
-        await axios.post(movementUrl, { fields: { ...movement, session: [sessionPost.data.id] } }, config)
+        await axios.post('/sessions', { ...movement, session: [sessionPost.data.id] })
       })
       props.setToggle(prevToggle => !prevToggle)
       navigate('/')
