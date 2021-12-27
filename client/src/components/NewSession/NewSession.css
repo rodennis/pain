@@ -125,6 +125,11 @@
   height: 0px;
 }
 
+.Link {
+  color: white;
+  text-decoration: none;
+}
+
 .send-session {
   height: 25px;
   width: 75px;
@@ -139,12 +144,28 @@
   font-family: 'oswald';
   cursor: pointer;
   transition: transform .5s;
-  text-decoration: none;
 }
 
 .send-session:hover {
   background-color: rgb(255, 255, 255, 0.1);
   transform: scale(1.1);
+}
+
+.edit-session {
+  height: 25px;
+  width: 75px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background: transparent;
+  top: 135px;
+  position: relative;
+  margin-right: 120px;
+  color: white;
+  font-family: 'oswald';
+  cursor: pointer;
+  transition: transform .5s;
+  text-decoration: none;
 }
 
 .cancel-session {
