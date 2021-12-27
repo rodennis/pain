@@ -12,7 +12,6 @@ function App() {
 
   const mountedRef = useRef(false)
   const [session, setSession] = useState([])
-  const [movements] = useState([])
   const [toggle, setToggle] = useState(false)
 
   useEffect(() => {

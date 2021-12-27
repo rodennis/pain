@@ -7,7 +7,8 @@ function Movement(props) {
 
   return (
     <>
-      {formData.map((input, index) => (
+      { 
+        formData.map((input, index) => (
         <>
           <div className='movement'>
           <input className='movement-name' type="text"
