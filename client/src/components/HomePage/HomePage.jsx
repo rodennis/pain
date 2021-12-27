@@ -18,7 +18,7 @@ function HomePage(props) {
         </div>
       </div>
       <div className='all-sessions-div'>
-        {
+        {/* {
           props.session[0]
           ?
           props.session.map(sesh => (
@@ -30,14 +30,14 @@ function HomePage(props) {
           </div>
             </Link>
       ))
-      :
+      : */}
       <div className="action-text">
           <p>Welcome to PAIN, the workout app for you! An app for tracking your training <br />
             sessions in the gym. We strive to make it easy and simple to track your<br />
             training, weather you’re engaging in one workout or multiple.<br /><br /><br /><br />
             To get started Click “<span>+</span>” and start training!</p>
         </div>
-      }
+      {/* } */}
       </div>
 
     </div>
