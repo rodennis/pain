@@ -154,7 +154,7 @@
 
   .date {
     width: 150px;
-    margin-left: -55px;
+    margin-left: -25px;
   }
 
   .sessions-div {
@@ -199,6 +199,10 @@
   }
 
   .send-session {
+    margin-left: -100px;
+  }
+
+  .edit-session {
     margin-left: -100px;
   }
 

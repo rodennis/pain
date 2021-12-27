@@ -22,7 +22,7 @@ function HomePage(props) {
           props.session[0]
           ?
           props.session.map(sesh => (
-            <Link key={ sesh.id} className='link' to={`/session/${sesh._id}`}>
+            <Link key={ sesh._id} className='link' to={`/session/${sesh._id}`}>
               <div className='sesh-div'>
           <h1 className='sesh-name'>{sesh.sessionName}</h1>
                 <h4 className='sesh-date'>{sesh.date ? sesh.date : <p>No Date Provided</p>}</h4>
