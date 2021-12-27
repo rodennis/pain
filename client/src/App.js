@@ -24,7 +24,6 @@ function App() {
   useEffect(() => {
     const getApiData = async () => {
       const res = await api.get('/sessions')
-      console.log(res.data);
       if (mountedRef.current) {
         setSession(res.data);
       }

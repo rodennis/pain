@@ -52,7 +52,7 @@ function Session(props) {
                 {
                   movements ?
                   movements.map(move => (
-                    <div key={ move.id } className='movement'>
+                    <div key={ move._id } className='movement'>
                       <input className='movement-name' type="text" value={move.movement} readOnly /><br />
                       <input className='weight' type="text" value={move.weight} readOnly />
                       <input className='rpe' type="text" value={move.rpe} readOnly /><br />

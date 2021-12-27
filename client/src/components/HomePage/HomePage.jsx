@@ -19,7 +19,7 @@ function HomePage(props) {
       </div>
       <div className='all-sessions-div'>
         {
-          props.session[0]
+          props.session && props.session[0]
           ?
           props.session.map(sesh => (
             <Link key={ sesh._id} className='link' to={`/session/${sesh._id}`}>
