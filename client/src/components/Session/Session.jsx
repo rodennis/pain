@@ -64,7 +64,7 @@ function Session(props) {
                 }
             </div>
             <div className="action-buttons">
-            <Link to={`/session/edit/${sesh._id}`}><button className='send-session'>Edit</button></Link>
+            <button type='button' className='edit-session'><Link className='Link' to={`/session/edit/${sesh._id}`}>Edit</Link></button>
               <button onClick={handleDelete} className='cancel-session'>Delete</button>
             </div>
           </form>

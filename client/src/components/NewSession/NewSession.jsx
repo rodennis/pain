@@ -51,10 +51,9 @@ function NewSession(props) {
       movements
     }
     if (session) {
-      await api.delete(`sessions/${params.id}`)
-      await api.post('/sessions', sessionData)
+      await api.put(`sessions/${params.id}`, sessionData)
       setToggle(prevToggle => !prevToggle)
-      navigate('/')
+      navigate(`/session/${params.id}`)
     } else {
       await api.post('/sessions', sessionData)
       setToggle(prevToggle => !prevToggle)

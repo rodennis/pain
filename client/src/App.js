@@ -39,7 +39,7 @@ function App() {
         <Route path='/' element={<HomePage session={session} />} />
         <Route path='/new-session' element={<NewSession setToggle={setToggle} />}/>
         <Route path='/session/:id' element={<Session session={session}  toggle={toggle} setToggle={setToggle} />} />
-        <Route path='/session/edit/:id' element={<NewSession session={session} />} />
+        <Route path='/session/edit/:id' element={<NewSession session={session} setToggle={setToggle}/>} />
       </Routes>
       <Footer />
     </div>
