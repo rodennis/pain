@@ -1,38 +1,28 @@
 import React from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { sessionUrl, config } from '../Services/index'
-import axios from 'axios'
-
+import api from '../Services/apiConfig'
  
 function Session(props) {
 
   const navigate = useNavigate()
   const params = useParams()
-  const [sesh, setSesh] = useState([])
+  const [sesh, setSesh] = useState({})
   const [movements, setMovements] = useState([])
 
   
     useEffect(() => {
       const foundSesh = props.session.find(sesh => {
-        return sesh.id === params.id
+        return sesh._id === params.id
       })
       setSesh(foundSesh);
-
-      const moves = props.movements.filter((movement) => {
-        if (movement.fields.session) {
-          return movement.fields?.session[0] === foundSesh?.id
-        } else {
-          return false
-        }
-      })
-      setMovements(moves)
-    }, [params.id, props.session, props.movements])
+      sesh ? setMovements(sesh.movements) : setMovements()
+    }, [params.id, props.session, sesh])
   
 
   const handleDelete = async (e) => {
     e.preventDefault()
-    const res = await axios.delete(`${sessionUrl}/${params.id}`, config)
+    const res = await api.delete(`sessions/${params.id}`)
     if (res) {
       navigate('/')
       props.setToggle(prevToggle => !prevToggle)
@@ -43,12 +33,12 @@ function Session(props) {
     <div>
       <div className='form-div'>
         {
-          sesh && sesh.fields ?         
+          sesh ?         
           <form className='session'>
             <div className='name'>
               <label>
                 <input className='session-name' type="text"
-                  value={sesh.fields.sessionName} readOnly />
+                  value={sesh.sessionName} readOnly />
               </label>
             </div>
             <div className='add-a-movement'>
@@ -56,20 +46,21 @@ function Session(props) {
             <div className='date'>
               <input className='single-date-value'
                 type="date"
-                value={sesh.fields.date} readOnly />
+                value={sesh.date} readOnly />
             </div>
               <div className='sessions-div'>
-              {
+                {
+                  movements ?
                   movements.map(move => (
                     <div key={ move.id } className='movement'>
-                      <input className='movement-name' type="text" value={move.fields.movement} readOnly /><br />
-                      <input className='weight' type="text" value={move.fields.weight} readOnly />
-                      <input className='rpe' type="text" value={move.fields.rpe} readOnly /><br />
-                      <input className='reps' type="text" value={move.fields.reps} readOnly />
-                      <input className='sets' type="text" value={move.fields.sets} readOnly />
-                      <textarea className='notes' value={move.fields.notes} readOnly></textarea>
+                      <input className='movement-name' type="text" value={move.movement} readOnly /><br />
+                      <input className='weight' type="text" value={move.weight} readOnly />
+                      <input className='rpe' type="text" value={move.rpe} readOnly /><br />
+                      <input className='reps' type="text" value={move.reps} readOnly />
+                      <input className='sets' type="text" value={move.sets} readOnly />
+                      <textarea className='notes' value={move.notes} readOnly></textarea>
                     </div> 
-                  )) 
+                  )) : <h2>Loading...</h2>
                 }
             </div>
             <div className="action-buttons">

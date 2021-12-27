@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import './NewSession.css'
 import Movement from '../Movement/Movement'
-import { sessionUrl, movementUrl, config } from '../Services/index'
-import axios from 'axios'
 import api from '../Services/apiConfig'
 
 
@@ -14,9 +12,8 @@ function NewSession(props) {
   const navigate = useNavigate()
   const [sessionName, setSessionName] = useState('')
   const [date, setDate] = useState('')  
-  const [sessionId, setSessionId] = useState('')
+  const [sessionId] = useState('')
   const [movementArray, setMovementArray] = useState([])
-  const [test, setTest] = useState()
   const [formData, setFormData] = useState([
     {
       movement: '',
@@ -67,19 +64,15 @@ function NewSession(props) {
 
   const handleSessionSubmit = async (e) => {
     e.preventDefault()
-   
     const movements = formData.map(movement => movement)
     const sessionData = {
       sessionName,
       date,
       movements
     }
-    const sessionPost = await api.post('/sessions', sessionData )
-    console.log(sessionPost);
-    
+    await api.post('/sessions', sessionData )    
     props.setToggle(prevToggle => !prevToggle)
       navigate('/')
-    // }
   }
 
   const handleCancel = () => {
