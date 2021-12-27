@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const Movements = new Schema(
+const Movements = new Schema( 
   {
     movement: { type: String },
     weight: { type: String },

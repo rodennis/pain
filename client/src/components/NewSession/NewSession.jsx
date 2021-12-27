@@ -16,6 +16,7 @@ function NewSession(props) {
   const [date, setDate] = useState('')  
   const [sessionId, setSessionId] = useState('')
   const [movementArray, setMovementArray] = useState([])
+  const [test, setTest] = useState()
   const [formData, setFormData] = useState([
     {
       movement: '',
@@ -30,11 +31,6 @@ function NewSession(props) {
     }
   ])
   
-  const sessionData = {
-    sessionName,
-    date
-  }
-
   useEffect(() => {
     if (props.session) {
       const foundSesh = props.session.find(sesh => {
@@ -71,26 +67,16 @@ function NewSession(props) {
 
   const handleSessionSubmit = async (e) => {
     e.preventDefault()
-    // if (props.session) {
-    //   const res = await axios.put(`${sessionUrl}/${params.id}`, { fields: sessionData }, config)
-    //   formData.forEach(async movement => {
-    //     await axios.post(movementUrl, { fields: { ...movement, session: [res.data.id] } }, config)
-    //   })
-    //   if (res) {
-    //     navigate(`/session/${params.id}`)
-    //   }
-    // }
-    // else {
-    formData.forEach(async movement => {
-      const sessionData = {
-        sessionName,
-        date,
-        movements: [{...movement}]
-      }
-      const sessionPost = await api.post('/sessions', sessionData )
-        console.log(sessionPost);
-    })
-
+   
+    const movements = formData.map(movement => movement)
+    const sessionData = {
+      sessionName,
+      date,
+      movements
+    }
+    const sessionPost = await api.post('/sessions', sessionData )
+    console.log(sessionPost);
+    
     props.setToggle(prevToggle => !prevToggle)
       navigate('/')
     // }
